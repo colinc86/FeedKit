@@ -155,6 +155,21 @@ open class AtomFeed {
     /// present, is considered to apply to the entry.
     public var rights: String?
     
+    /// The total number of search results for this query.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var totalResults: String?
+    
+    /// The 0-based index of the first returned result in the total results list.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var startIndex: String?
+    
+    /// The number of results returned.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var itemsPerPage: String?
+    
     /// The "atom:entry" element represents an individual entry, acting as a
     /// container for metadata and data associated with the entry.  This
     /// element can appear as a child of the atom:feed element, or it can
@@ -184,6 +199,9 @@ extension AtomFeed: Equatable {
             lhs.icon == rhs.icon &&
             lhs.logo == rhs.logo &&
             lhs.rights == rhs.rights &&
+            lhs.totalResults == rhs.totalResults &&
+            lhs.startIndex == rhs.startIndex &&
+            lhs.itemsPerPage == rhs.itemsPerPage &&
             lhs.entries == rhs.entries
     }
     

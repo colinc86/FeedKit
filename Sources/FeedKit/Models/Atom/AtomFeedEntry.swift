@@ -78,6 +78,12 @@ public class AtomFeedEntry {
     /// meaning to the content (if any) of this element.
     public var categories: [AtomFeedEntryCategory]?
     
+    /// The arXiv classification system supports multiple <category> tags, as
+    /// well as a primary classification. The primary classification is a
+    /// replica of an Atom <category> tag, except it has the name
+    /// <arxiv:primary_category>.
+    public var primaryCategory: AtomFeedEntryPrimaryCategory?
+    
     /// The "atom:id" element conveys a permanent, universally unique
     /// identifier for an entry or feed.
     /// 
@@ -160,6 +166,21 @@ public class AtomFeedEntry {
     /// present, is considered to apply to the entry.
     public var rights: String?
     
+    /// The authors comment if present.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var comment: String?
+    
+    /// A journal reference if present.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var journalReference: String?
+    
+    /// A url for the resolved DOI to an external resource if present.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var doi: String?
+    
     /// Media RSS is a new RSS module that supplements the <enclosure>
     /// capabilities of RSS 2.0.
     public var media: MediaNamespace?
@@ -181,11 +202,15 @@ extension AtomFeedEntry: Equatable {
             lhs.links == rhs.links &&
             lhs.updated == rhs.updated &&
             lhs.categories == rhs.categories &&
+            lhs.primaryCategory == rhs.primaryCategory &&
             lhs.id == rhs.id &&
             lhs.content == rhs.content &&
             lhs.published == rhs.published &&
             lhs.source == rhs.source &&
-            lhs.rights == rhs.rights
+            lhs.rights == rhs.rights &&
+            lhs.comment == rhs.comment &&
+            lhs.journalReference == rhs.journalReference &&
+            lhs.doi == rhs.doi
     }
     
 }

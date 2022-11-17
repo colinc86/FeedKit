@@ -51,6 +51,11 @@ public class AtomFeedEntryAuthor {
     /// NOT contain more than one.  The content of atom:uri in a Person
     /// construct MUST be an IRI reference [RFC3987].
     public var uri: String?
+  
+    /// The author's affiliation.
+    ///
+    /// https://arxiv.org/help/api/user-manual
+    public var affiliation: String?
     
     public init() { }
     
@@ -64,7 +69,8 @@ extension AtomFeedEntryAuthor: Equatable {
         return
             lhs.name == rhs.name &&
             lhs.email == rhs.email &&
-            lhs.uri == rhs.uri
+            lhs.uri == rhs.uri &&
+            lhs.affiliation == rhs.affiliation
     }
     
 }

@@ -36,6 +36,9 @@ extension AtomFeed {
         case .feedTitle:                                       self.title                                                        = self.title?.appending(string) ?? string
         case .feedSubtitle:                                    self.subtitle?.value                                              = self.subtitle?.value?.appending(string) ?? string
         case .feedUpdated:                                     self.updated                                                      = string.toPermissiveDate()
+        case .feedTotalResults:                                self.totalResults                                                 = self.totalResults?.appending(string) ?? string
+        case .feedStartIndex:                                  self.startIndex                                                   = self.startIndex?.appending(string) ?? string
+        case .feedItemsPerPage:                                self.itemsPerPage                                                 = self.itemsPerPage?.appending(string) ?? string
         case .feedAuthorName:                                  self.authors?.last?.name                                          = self.authors?.last?.name?.appending(string) ?? string
         case .feedAuthorEmail:                                 self.authors?.last?.email                                         = self.authors?.last?.email?.appending(string) ?? string
         case .feedAuthorUri:                                   self.authors?.last?.uri                                           = self.authors?.last?.uri?.appending(string) ?? string
@@ -52,6 +55,9 @@ extension AtomFeed {
         case .feedEntryUpdated:                                self.entries?.last?.updated                                       = string.toPermissiveDate()
         case .feedEntryID:                                     self.entries?.last?.id                                            = self.entries?.last?.id?.appending(string) ?? string
         case .feedEntryContent:                                self.entries?.last?.content?.value                                = self.entries?.last?.content?.value?.appending(string) ?? string
+        case .feedEntryComment:                                self.entries?.last?.comment                                       = self.entries?.last?.comment?.appending(string) ?? string
+        case .feedEntryJournalReference:                       self.entries?.last?.journalReference                              = self.entries?.last?.journalReference?.appending(string) ?? string
+        case .feedEntryDOI:                                    self.entries?.last?.doi                                           = self.entries?.last?.doi?.appending(string) ?? string
         case .feedEntryPublished:                              self.entries?.last?.published                                     = string.toPermissiveDate()
         case .feedEntrySourceID:                               self.entries?.last?.source?.id                                    = self.entries?.last?.source?.id?.appending(string) ?? string
         case .feedEntrySourceTitle:                            self.entries?.last?.source?.title                                 = self.entries?.last?.source?.title?.appending(string) ?? string
@@ -60,6 +66,7 @@ extension AtomFeed {
         case .feedEntryAuthorName:                             self.entries?.last?.authors?.last?.name                           = self.entries?.last?.authors?.last?.name?.appending(string) ?? string
         case .feedEntryAuthorEmail:                            self.entries?.last?.authors?.last?.email                          = self.entries?.last?.authors?.last?.email?.appending(string) ?? string
         case .feedEntryAuthorUri:                              self.entries?.last?.authors?.last?.uri                            = self.entries?.last?.authors?.last?.uri?.appending(string) ?? string
+        case .feedEntryAuthorAffiliation:                      self.entries?.last?.authors?.last?.affiliation                    = self.entries?.last?.authors?.last?.affiliation?.appending(string) ?? string
         case .feedEntryContributorName:                        self.entries?.last?.contributors?.last?.name                      = self.entries?.last?.contributors?.last?.name?.appending(string) ?? string
         case .feedEntryContributorEmail:                       self.entries?.last?.contributors?.last?.email                     = self.entries?.last?.contributors?.last?.email?.appending(string) ?? string
         case .feedEntryContributorUri:                         self.entries?.last?.contributors?.last?.uri                       = self.entries?.last?.contributors?.last?.uri?.appending(string) ?? string

@@ -125,6 +125,12 @@ extension AtomFeed {
             }
             
             self.entries?.last?.categories?.append(AtomFeedEntryCategory(attributes: attributes))
+          
+        case .feedEntryPrimaryCategory:
+          
+            if  self.entries?.last?.primaryCategory == nil {
+                self.entries?.last?.primaryCategory = AtomFeedEntryPrimaryCategory(attributes: attributes)
+            }
             
         case .feedEntryContent:
             
